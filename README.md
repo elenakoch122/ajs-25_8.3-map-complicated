@@ -1,5 +1,7 @@
 # ДЗ Контейнеры - Map (задача со звёздочкой)
 
+[![Build status](https://ci.appveyor.com/api/projects/status/90cebke1vrw6etla?svg=true)](https://ci.appveyor.com/project/elenakoch122/ajs-25-8-3-map-complicated)
+
 ### Легенда
 
 Давать возможность пользователю кастомизировать внешний вид приложения - достаточно хорошая идея. Поэтому вы решили также реализовать поддержку этой функциональности в своей игре.

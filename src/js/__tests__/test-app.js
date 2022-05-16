@@ -15,6 +15,8 @@ test('changeSettings method if error', () => {
   expect(result.changeSettings('music', 'jazz')).toBe('Ошибка! Такие параметры настроек не предусмотрены.');
 });
 
-test('settings method', () => {
-
+test('get settings method', () => {
+  const result = new Settings();
+  result.changeSettings('music', 'off');
+  expect(result.settings.get('music')).toBe('off');
 });

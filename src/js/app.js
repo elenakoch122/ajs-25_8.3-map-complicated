@@ -7,15 +7,15 @@ export default class Settings {
 
     this.userSettings = new Map();
 
-    this.availableSettings = {
-      theme: ['light', 'gray'],
-      music: ['pop', 'rock', 'chillout', 'off'],
-      difficulty: ['normal', 'hard', 'nightmare'],
-    };
+    this.availableSettings = new Map([
+      ['theme', new Set(['light', 'gray'])],
+      ['music', new Set(['pop', 'rock', 'chillout', 'off'])],
+      ['difficulty', new Set(['normal', 'hard', 'nightmare'])],
+    ]);
   }
 
   changeSettings(name, value) {
-    if (name in this.availableSettings && this.availableSettings[name].includes(value)) {
+    if (this.availableSettings.has(name) && this.availableSettings.get(name).has(value)) {
       this.userSettings.delete(name);
       this.userSettings.set(name, value);
       return this.userSettings;
@@ -23,7 +23,7 @@ export default class Settings {
     return 'Ошибка! Такие параметры настроек не предусмотрены.';
   }
 
-  // get settings() {
-  //   return new Map(); // не поняла что должен возвращать,что должно быть в Map?
-  // }
+  get settings() {
+    return new Map([...this.defaultSettings, ...this.userSettings]);
+  }
 }
